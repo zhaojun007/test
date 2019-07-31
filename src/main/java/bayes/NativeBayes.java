@@ -1,3 +1,4 @@
+package bayes;
 
 
 import java.io.File;

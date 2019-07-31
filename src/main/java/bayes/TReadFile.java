@@ -6,10 +6,10 @@ import java.io.IOException;
 public class TReadFile {
     public static void main(String[] args) throws IOException {
 
-        /*String readTxt = readTxt(
+        String readTxt = readTxt(
                 new File("D:\\test2\\X64-release-200\\keData\\trainData\\200\\80464503CB33273BE053C805A8C0D581.txt"),
                 "utf-8");
-        System.out.println(readTxt);*/
+        System.out.println(readTxt);
 
     }
 
