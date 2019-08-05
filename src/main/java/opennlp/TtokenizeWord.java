@@ -21,9 +21,9 @@ import opennlp.tools.tokenize.TokenizerModel;
 
 public class TtokenizeWord {
     public static void main(String[] args) throws FileNotFoundException, IOException {
-       // tokenizeWord();
+        tokenizeWord();
         
-        englishSegment();
+        //englishSegment();
     }
 
     /**
@@ -33,6 +33,7 @@ public class TtokenizeWord {
      * @throws IOException
      */
     public static void tokenizeWord() throws FileNotFoundException, IOException {
+        //String paragraph="我是中国人";
         String paragraph = "Hi. How are you? This is JD_Dog. He is my good friends.He is very kind.but he is no more handsome than me. ";
         try (InputStream is = new FileInputStream(new File("D:\\openNlpModel\\en-token.bin"))) {
             TokenizerModel tokenizerModel = new TokenizerModel(is);
@@ -54,8 +55,6 @@ public class TtokenizeWord {
         for (CoreMap coreMap : string) {
             for (CoreLabel coreLabel : coreMap.get(TokensAnnotation.class)) {
                 String string2 = coreLabel.get(LemmaAnnotation.class);
-                String string3 = coreLabel.get(NERIDAnnotation.class);
-                System.out.println(string3);
                 System.out.println(string2);
             }
         }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Properties;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.tokensregex.types.Value;
 import edu.stanford.nlp.neural.rnn.RNNCoreAnnotations;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
@@ -19,6 +20,9 @@ import edu.stanford.nlp.util.CoreMap;
  *
  */
 public class TSentiment {
+    public <VALUE> VALUE test(){
+        return null;
+    };
     public static void main(String[] args) {
         String reviewText = "我觉得这部片子很垃圾";
        // String reviewText=" i think this movie is terrible";
