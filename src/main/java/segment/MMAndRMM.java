@@ -3,25 +3,31 @@ package segment;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.List;
 
-import javax.imageio.stream.FileImageInputStream;
-
+/**
+ * 
+ * TODO
+ * 
+ * @author zhaojun 2019年8月6日 上午10:11:09
+ *
+ */
 public class MMAndRMM {
-    static HashSet<String> dictSet=new HashSet<String>();
+    static HashSet<String> dictSet = new HashSet<String>();
+    static String path = MMAndRMM.class.getClassLoader().getResource("dictionary.txt").getPath();
+
     public static void main(String[] args) {
         // 自定义一个词典
-        String dictList = "北京,北京奥运会,奥体中心,奥林匹克,森林,公园,开幕";
+        // String dictList = "北京,北京奥运会,奥体中心,奥林匹克,森林,公园,开幕";
         HashSet<String> dictionary = MMAndRMM.loadDictionary();
         // 输入子串
         String inputString = "北京奥运会在奥林匹克森林公园正式开幕";
         // 词典最大子串长度
         int max_length = 5;
         List<String> mm = MM.mm(dictionary, inputString, max_length);
-        List<String> rmm = RMM.rmm(dictList, inputString, max_length);
+        List<String> rmm = RMM.rmm(dictionary, inputString, max_length);
         List<String> bestResult = getBestResult(mm, rmm);
         System.out.println(bestResult);
         loadDictionary();
@@ -60,14 +66,15 @@ public class MMAndRMM {
             }
         }
     }
+
     public static HashSet<String> loadDictionary() {
-        String filePath="\\dictionary.txt";
-        String line=null;
-        try(BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(new File(filePath)),"gbk"))){
-            while((line=bufferedReader.readLine())!=null) {
-                line=line.split("\\s+")[1];
-                dictSet.add(line);  
-            } 
+        String line = null;
+        try (BufferedReader bufferedReader = new BufferedReader(
+                new InputStreamReader(new FileInputStream(new File(path)), "gbk"))) {
+            while ((line = bufferedReader.readLine()) != null) {
+                line = line.split("\\s+")[1];
+                dictSet.add(line);
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
