@@ -11,7 +11,7 @@ public class RMM {
         // String dictList="北京,北京奥运会,奥体中心,奥林匹克,森林,公园,开幕";
         HashSet<String> dictionary = MMAndRMM.loadDictionary();
         // 输入子串
-        String inputString = "北京奥运会在奥林匹克森林公园正式开幕";
+        String inputString = "2008奥运会在北京奥林匹克森林公园正式开幕";
         // 词典最大子串长度
         int max_length = 5;
         List<String> mm = rmm(dictionary, inputString, max_length);
