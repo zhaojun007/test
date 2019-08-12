@@ -54,15 +54,16 @@ public abstract class AbstractClassifier1 implements IClassifier1 {
         Iterator<Entry<String, Double>> iterator = scoreMap.entrySet().iterator();
         while (iterator.hasNext()) {
             Entry<String, Double> next = iterator.next();
-            if (next.getValue() < 0.5) {
-                scoreMap.remove(next.getKey(), next.getValue());
-            }
+            System.out.println("所有分类预测结果:" + next.getKey() + "-->" + next.getValue());
+            /*if (next.getValue() < 0.5) {
+                iterator.remove();
+            }*/
         }
-        iterator = scoreMap.entrySet().iterator();
+       /* iterator = scoreMap.entrySet().iterator();
         while (iterator.hasNext()) {
             Entry<String, Double> next = iterator.next();
-            System.out.println("分类预测结果:" + next.getKey() + "-->" + next.getValue());
-        }
+            System.out.println("预测结果大于阈值的分类:" + next.getKey() + "-->" + next.getValue());
+        }*/
         // 先定义阈值0.5
         return CollectionUtility.max(scoreMap);
     }
